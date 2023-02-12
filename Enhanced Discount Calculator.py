@@ -15,28 +15,23 @@ print("Current date:", day, "/", month, "/", year)
 
 #Discount Calculator anti-error code
 print('\nDiscount calculator')
-def Discount():
-    while True:
-        bill = input('Please input amount(press enter key to exit): ')
+while True:
+     try:
+        bill = input('\nPlease input price(q to exit); ').strip()
         if bill == '':
-            print('Closing calculator,Goodbye user.')
+            print('Shuting down, goodbye user.')
             time.sleep(3)
             break
-        if bill.isdigit():
-            bill = float(bill)
-            Dis = input("Please input the discount: ")
-            if Dis.isdigit():
-                Dis = float(Dis)
-                disc = Dis / 100
-                multi = bill * disc
-                sub = bill - multi
-                print(f"\n\tThe items' discounted price is {sub}")
+        bill = float(bill)
+        dis = input('Input discount; ')
+        dis = float(dis)
+
+        dis = dis / 100
+        multi = bill * dis
+        sub = bill - multi
+        print(f"\nThe items' discounted price is {sub}")
 
 
-            else:
-                print("Please input a valid no.")
-        else:
-            print("input a valid no.")
+     except:
+            print('Enter a number')
 
-
-Discount()
